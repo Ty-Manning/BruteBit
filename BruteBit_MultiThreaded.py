@@ -28,14 +28,14 @@ def load_addresses(file_path):
 
 # Function to create or load a Bloom Filter
 def create_or_load_bloom_filter(file_path, addresses):
-    num_bits = 1000000000  # Approximately 1 billion bits
+    num_bits = 3000000000  # Approximately 3 billion bits
     
     bloom_filter_file = file_path + '.blm'
     if os.path.exists(bloom_filter_file):
         with open(bloom_filter_file, 'rb') as f:
             bloom_filter = BloomFilter.fromfile(f)
     else:
-        bloom_filter = BloomFilter(num_bits, 0.01)  # False positive rate of 1%
+        bloom_filter = BloomFilter(num_bits, 0.0001)  # False positive rate of 1%
         
         with tqdm(total=len(addresses), desc='Creating Bloom Filter', unit=' Addresses') as pbar:
             for address in addresses:
@@ -123,7 +123,7 @@ def update_progress(progress_queue, total_addresses_checked):
         elapsed_time = time.time() - start_time
         if elapsed_time >= 10:
             keys_per_second = addresses_checked_total / elapsed_time
-            print(f"Total Addresses Checked: {total_addresses_checked.value}, Addresses Checked (last 10 seconds): {addresses_checked_total}, Keys/s: {keys_per_second:.2f}")
+            print(f"Total Addresses Checked: {total_addresses_checked.value}, Keys/s: {keys_per_second:.2f}")
             start_time = time.time()  # Reset start time
             addresses_checked_total = 0  # Reset total addresses checked count
 
@@ -143,7 +143,7 @@ def main():
     progress_queue = Queue()
 
     # Set number of processes
-    num_processes = 12
+    num_processes = 16
 
     # Create and start progress update process
     progress_process = Process(target=update_progress, args=(progress_queue, total_addresses_checked))
