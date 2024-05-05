@@ -2,7 +2,7 @@ Add a txt file with one address per line, if using ETH addresses then there shou
 
 Change number of threads under the main function under "num_processes" variable.
 
-If you have a lot of free memory then use the HASH version, this uses a hash table and is more reliable as well as much faster.
+If you have a lot of free memory or are using a very small lookup file (less than a million or so addresses) then use the HASH version, this uses a hash table and is more reliable as well as much faster.
 -Otherwise use the BLOOM version, this uses a bloom filter and may occasionally give false positives and works slightly slower.
 
 
