@@ -6,6 +6,7 @@ from bitcoinlib.wallets import Wallet, wallet_delete
 from tqdm import tqdm
 import secrets
 from ecdsa import SECP256k1, SigningKey
+import ecdsa
 import time
 from multiprocessing import Process, Queue, Value
 
@@ -80,7 +81,8 @@ def private_key_to_address(private_key):
     public_key_hash_ethereum = hashlib.sha3_256(public_key).digest()
     ethereum_address = public_key_hash_ethereum[-20:].hex()
 
-    return legacy_address, segwit_address, ethereum_address
+
+    return legacy_address, segwit_address, ethereum_address,
 
 # Function to generate and test private keys
 def generate_and_test_keys(hash_table, progress_queue, total_addresses_checked):
@@ -128,7 +130,7 @@ def update_progress(progress_queue, total_addresses_checked):
 
 # Main function
 def main():
-    input_file = 'combined_addresses.txt'  # Change this to your input file
+    input_file = '120MEverything.txt'  # Change this to your input file
 
     addresses = load_addresses(input_file)
 
@@ -142,7 +144,7 @@ def main():
     progress_queue = Queue()
 
     # Set number of processes
-    num_processes = 20
+    num_processes = 16
 
     # Create and start progress update process
     progress_process = Process(target=update_progress, args=(progress_queue, total_addresses_checked))
