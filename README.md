@@ -1,11 +1,25 @@
-Add a txt file with one address per line, if using ETH addresses then there should not be the 0x prefix. Change the address file in the code under main, variable input file.
+# BruteBit
 
-Change number of threads under the main function under "num_processes" variable.
+This script checks a list of wallet addresses against a lookup file to find matches. It offers two methods: HASH and BLOOM, depending on your memory availability and lookup file size.
 
-If you have a lot of free memory or are using a very small lookup file (less than a million or so addresses) then use the HASH version, this uses a hash table and is more reliable as well as much faster.
--Otherwise use the BLOOM version, this uses a bloom filter and may occasionally give false positives and works slightly slower.
+## Usage
 
-NOTE FOR HASH TABLE: The first 10 minutes will be slower. I think this is because the entire hash table needs to be indexed as a set.
+1. **Prepare Input File:**
+   - Create a text file (`addresses.txt`) with one wallet address per line. If using ETH addresses, omit the `0x` prefix.
 
+2. **Configure the Script:**
+   - Open the script and locate the `main` function.
+   - Set the `input_file` variable to point to your `addresses.txt` file.
 
-DISCLAIMER: This is made as a proof of concept. You almost certainly will not find the private key to a wallet. If you do, and you use it, that is theft. I do not condone theft.
+3. **Adjust Settings:**
+   - In the `main` function, adjust the `num_processes` variable to specify the number of threads (parallel processes) to use.
+
+4. **Choose Method:**
+   - Decide between HASH and BLOOM methods:
+     - **HASH:** Use for large memory and small lookup files (< 1 million addresses). It provides reliable and fast results but may have slower initial indexing.
+     - **BLOOM:** Use for larger lookup files or limited memory situations. It employs a bloom filter and may occasionally produce false positives, running slightly slower.
+
+## Important Notes
+
+- **HASH Table Performance:** The script may have slower initial performance (up to 10 minutes) as it indexes the entire hash table.
+- **DISCLAIMER:** This script is a proof of concept. Finding a private key through this method is highly unlikely and using any discovered private keys without permission is considered theft.
