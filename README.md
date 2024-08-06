@@ -23,3 +23,17 @@ This script checks a list of wallet addresses against a lookup file to find matc
 
 - **HASH Table Performance:** The script may have slower initial performance (up to 10 minutes) as it indexes the entire hash table.
 - **DISCLAIMER:** This script is a proof of concept. Finding a private key through this method is highly unlikely and using any discovered private keys without permission is considered theft.
+
+
+### Support the Project
+
+I create and maintain **BruteBit** purely for fun, but your support is greatly appreciated. If you'd like to contribute, here are some ways you can help:
+
+- **BTC**: `bc1q9x6zrts3prgankxs3sk5qpt942c3039vay9m0l`
+- **ETH**: `0xeAF0bF2dd1b72AB756ce5F528C7DE0Cae269f6C6`
+- **LTC**: `ltc1qu3uhq3d2wkqrg46de0cgzyjn6uah5j9rywyghh`
+- **DOGE**: `DDnJnpBNcha6Jo5RhvxweUNiavoGJ5cNj5`
+- **CLORE**: `AWU451rYD9DngEZdqpKr88CtnzzrU1Usou`
+- **Venmo**: `TyManning22`
+
+Thank you for your support!
