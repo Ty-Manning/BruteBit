@@ -33,7 +33,5 @@ I create and maintain **BruteBit** purely for fun, but your support is greatly a
 - **ETH**: `0xeAF0bF2dd1b72AB756ce5F528C7DE0Cae269f6C6`
 - **LTC**: `ltc1qu3uhq3d2wkqrg46de0cgzyjn6uah5j9rywyghh`
 - **DOGE**: `DDnJnpBNcha6Jo5RhvxweUNiavoGJ5cNj5`
-- **CLORE**: `AWU451rYD9DngEZdqpKr88CtnzzrU1Usou`
-- **Venmo**: `TyManning22`
 
 Thank you for your support!
